@@ -3,21 +3,39 @@ Handlebars.js-helpers-collection
 
 Handlebars.js helpers collection
 
-### overview
+### Overview
 
-* <a href="#First">First</a>
-* <a href="#IterateSliced">Iterate_Sliced</a>
+#### List helpers
+* <a href="#First">Get first element of a list</a>
+* <a href="#IterateSliced">Iterate over a given range</a>
 * <a href="#commaSeparatedList">Print comma separated list</a>
+* <a href="#JOIN">Join elements with character in between</a>
+* <a href="#keyValue">Put/overrides value by given key</a>
+* <a href="#each_with_key">Put/overrides all nested values by given key</a>
+
+
+#### Conditions
+* <a href="#IfEqual">If Equal</a>
+
+#### Value formatting helpers
 * <a href="#formatDate">Format Date</a>
+* <a href="#encode">Encode characters</a>
+
+#### Debugging and Logging
 * <a href="#debugHelper">Debug Helper</a>
 
-by https://gist.github.com/strathmeyer
-// HELPER: #key_value
-//
-// Usage: {{#key_value obj}} Key: {{key}} // Value: {{value}} {{/key_value}}
-//
-// Iterate over an object, setting 'key' and 'value' for each property in
-// the object.
+#### Managing Scope
+* <a href="simpleInclude">Include of other Handlebar templates</a>
+
+
+####<a name="keyValue">override Key-Value</a>
+##### Description
+Iterate over an object, setting 'key' and 'value' for each property in
+the object.
+#####Usage
+{{#key_value obj}} Key: {{key}} // Value: {{value}} {{/key_value}}
+
+```javascript
 Handlebars.registerHelper("key_value", function(obj, fn) {
     var buffer = "",
         key;
@@ -30,14 +48,19 @@ Handlebars.registerHelper("key_value", function(obj, fn) {
 
     return buffer;
 });
+```
+by https://gist.github.com/strathmeyer
 
-// HELPER: #each_with_key
-//
-// Usage: {{#each_with_key container key="myKey"}}...{{/each_with_key}}
-//
-// Iterate over an object containing other objects. Each
-// inner object will be used in turn, with an added key ("myKey")
-// set to the value of the inner object's key in the container.
+
+####<a name="each_with_key">Each with Key</a>
+#####Description
+Iterate over an object containing other objects. Each
+inner object will be used in turn, with an added key ("myKey")
+set to the value of the inner object's key in the container.
+#####Usage
+{{#each_with_key container key="myKey"}}...{{/each_with_key}}
+
+```javascript
 Handlebars.registerHelper("each_with_key", function(obj, fn) {
     var context,
         buffer = "",
@@ -58,6 +81,9 @@ Handlebars.registerHelper("each_with_key", function(obj, fn) {
 
     return buffer;
 });
+```
+
+by https://gist.github.com/strathmeyer
 
 ####<a name="First">First</a>
 #####Description:
@@ -101,8 +127,9 @@ Handlebars.registerHelper('slice', function(context, block) {
 ####<a name="commaSeparatedList">Print comma separated list</a>
 #####Description
 return a comma-serperated list from an iterable object
-##### Upsage:
+##### Usage:
 {{#toSentance tags}}{{name}}{{/toSentance}}
+
 ```javascript
 Handlebars.registerHelper('toSentance', function(context, block) {
   var ret = "";
@@ -135,8 +162,11 @@ Handlebars.registerHelper('dateFormat', function(context, block) {
 ```
 
 ###<a name="debugHelper">Debug Helper</a>
-usage: {{debug}} or {{debug someValue}}
-from: @commondream (http://thinkvitamin.com/code/handlebars-js-part-3-tips-and-tricks/)
+#####Description
+
+#####Usage
+{{debug}} or {{debug someValue}}
+
 ```javascript
 Handlebars.registerHelper("debug", function(optionalValue) {
   console.log("\nCurrent Context");
@@ -151,7 +181,7 @@ Handlebars.registerHelper("debug", function(optionalValue) {
 });
 ```
 
-
+from: @commondream (http://thinkvitamin.com/code/handlebars-js-part-3-tips-and-tricks/)
 
 
 
@@ -167,7 +197,6 @@ Handlebars.registerHelper('uc', function (str) {
 ```
 
 ```javascript
-
 _isFunction = function(obj) {
     return !!(obj && obj.constructor && obj.call && obj.apply);
 };
