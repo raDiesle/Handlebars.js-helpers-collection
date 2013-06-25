@@ -134,7 +134,7 @@ return a comma-serperated list from an iterable object
 Handlebars.registerHelper('toSentance', function(context, block) {
   var ret = "";
   for(var i=0, j=context.length; i<j; i++) {
-    ret = ret + block(context[i]);
+    ret = ret + block.fn(context[i]);
     if (i<j-1) {
       ret = ret + ", ";
     };
