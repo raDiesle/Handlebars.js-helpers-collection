@@ -16,6 +16,16 @@ Handlebars.js helpers collection
 
 #### Conditions
 * <a href="#IfEqual">If Equal</a>
+* <a href="#IfEqual2">If Equal variant 2</a>
+* <a href="#unlessxEquals">Unless X Equals</a>
+* <a href="#greaterThan">Greater Than</a>
+* <a href="#unlessGreaterThan">Unless Grreater Than</a>
+* <a href="#greaterThanOrEqualTo">Greater than or equal to</a>
+* <a href="#unlessGreaterOrEqual">Unless greater than or equal to</a>
+* <a href="#lessThan">LessThan</a>
+* <a href="#unlessLessThan">Unless less than</a>
+* <a href="#lessThanOrEqualTo">Less than or Equal to</a>
+
 
 #### Value formatting helpers
 * <a href="#formatDate">Format Date</a>
@@ -26,6 +36,11 @@ Handlebars.js helpers collection
 
 #### Managing Scope
 * <a href="simpleInclude">Include of other Handlebar templates</a>
+
+#### Additional
+see:
+https://github.com/danharper/Handlebars-Helpers/edit/master/README.md
+
 
 
 ####<a name="keyValue">override Key-Value</a>
