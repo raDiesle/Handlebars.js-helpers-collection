@@ -131,7 +131,7 @@ Handlebars.registerHelper('slice', function(context, block) {
       j = ((limit + offset) < context.length) ? (limit + offset) : context.length;
 
   for(i,j; i<j; i++) {
-    ret += block(context[i]);
+    ret += block.fn(context[i]);
   }
 
   return ret;
